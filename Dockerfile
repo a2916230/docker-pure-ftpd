@@ -52,7 +52,7 @@ RUN apt-get install -y rsyslog && \
 # setup run/init file
 COPY run.sh /run.sh
 RUN chmod u+x /run.sh
-
+RUN useradd -b /home/vsftpd -ms /bin/bash user && echo 'bob:password' | chpasswd
 # default publichost, you'll need to set this for passive support
 ENV PUBLICHOST localhost
 
